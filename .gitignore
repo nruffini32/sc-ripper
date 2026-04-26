@@ -1,0 +1,7 @@
+.venv/
+.env
+sessions.db
+trimmed-rips/
+__pycache__/
+*.pyc
+.DS_Store
