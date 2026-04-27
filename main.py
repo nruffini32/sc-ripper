@@ -14,6 +14,7 @@ load_dotenv()  # MUST come before auth is imported (reads env)
 
 from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, Request, Response, UploadFile
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 import auth
@@ -56,6 +57,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="SC Ripper", lifespan=lifespan)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # In-memory job store. Single-process dev — a plain dict is fine.
 jobs: dict[str, dict] = {}
