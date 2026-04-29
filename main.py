@@ -261,7 +261,7 @@ async def _run_upload_job(
     try:
         access_token = await auth.ensure_access_token(session_id)
         description = (
-            f"Ripped from \"{job['title']}\" by {job['uploader']}\n\n{job['source_url']}\n\nvia SC Ripper"
+            f"Ripped from \"{job['title']}\" by {job['uploader']}\n\n{job['source_url']}\n\nvia https://sc-ripper.com/"
         )
         track = await upload_track(
             access_token,
